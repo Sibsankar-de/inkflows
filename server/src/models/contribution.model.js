@@ -1,38 +1,41 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-const contributionSchema = new Schema({
+const contributionSchema = new Schema(
+  {
     blogId: {
-        type: mongoose.Types.ObjectId,
-        ref: "Blogs",
-        required: true
+      type: mongoose.Types.ObjectId,
+      ref: 'Blogs',
+      required: true,
     },
     blogDetails: {
-        type: Object
+      type: Object,
     },
     userId: {
-        type: mongoose.Types.ObjectId,
-        ref: "Users",
-        required: true
+      type: mongoose.Types.ObjectId,
+      ref: 'Users',
+      required: true,
     },
     userName: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     avatar: {
-        type: String
+      type: String,
     },
     isRespond: {
-        type: Boolean,
-        default: true
+      type: Boolean,
+      default: true,
     },
     isAccepted: {
-        type: Boolean,
-        default: true
+      type: Boolean,
+      default: true,
     },
     isActive: {
-        type: Boolean,
-        default: true
-    }
-}, { timestamps: true })
+      type: Boolean,
+      default: true,
+    },
+  },
+  { timestamps: true }
+);
 
-export const Contribution = mongoose.model("Contributor", contributionSchema)
+export const Contribution = mongoose.model('Contributor', contributionSchema);

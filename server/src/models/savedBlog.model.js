@@ -1,16 +1,19 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-const savedBlogSchema = new Schema({
+const savedBlogSchema = new Schema(
+  {
     blogId: {
-        type: mongoose.Types.ObjectId,
-        ref: "Blogs",
-        required: true
+      type: mongoose.Types.ObjectId,
+      ref: 'Blogs',
+      required: true,
     },
     savedBy: {
-        type: mongoose.Types.ObjectId,
-        ref: "Users",
-        required: true
-    }
-}, {timestamps: true})
+      type: mongoose.Types.ObjectId,
+      ref: 'Users',
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
-export const SavedBlog = mongoose.model("SavedBlog", savedBlogSchema)
+export const SavedBlog = mongoose.model('SavedBlog', savedBlogSchema);

@@ -1,45 +1,48 @@
 import mongoose, { Schema } from "mongoose";
 
-const blogSchema = new Schema({
+const blogSchema = new Schema(
+  {
     creator: {
-        type: mongoose.Types.ObjectId,
-        ref: "Users",
-        required: true
+      type: mongoose.Types.ObjectId,
+      ref: "Users",
+      required: true,
     },
-    contributors:{
-        type: Array,
-        default: []
+    contributors: {
+      type: Array,
+      default: [],
     },
     blogTitle: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     contentList: {
-        type: Array,
-        required: true
+      type: Array,
+      required: true,
     },
     blogCategories: {
-        type: Array
+      type: Array,
     },
     thumbnail: {
-        type: String
+      type: String,
     },
     tagList: {
-        type: Array
+      type: Array,
     },
     uploadStatus: {
-        type: String,
-        default: "draft",
-        required: true
+      type: String,
+      default: "draft",
+      required: true,
     },
     totalLikes: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     totalViews: {
-        type: Number,
-        default: 0
-    }
-}, { timestamps: true })
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true },
+);
 
-export const Blog = mongoose.model('Blog', blogSchema)
+export const Blog = mongoose.model("Blog", blogSchema);

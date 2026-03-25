@@ -1,20 +1,23 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-const viewSchema = new Schema({
+const viewSchema = new Schema(
+  {
     postId: {
-        type: mongoose.Types.ObjectId,
-        ref: "Blogs",
-        required: true
+      type: mongoose.Types.ObjectId,
+      ref: 'Blogs',
+      required: true,
     },
     viewedBy: {
-        type: mongoose.Types.ObjectId,
-        ref: "Users",
-        required: true
+      type: mongoose.Types.ObjectId,
+      ref: 'Users',
+      required: true,
     },
-    repetition:{
-        type: Number,
-        default: 0
-    }
-}, {timestamps: true})
+    repetition: {
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true }
+);
 
-export const View = mongoose.model("View", viewSchema)
+export const View = mongoose.model('View', viewSchema);
